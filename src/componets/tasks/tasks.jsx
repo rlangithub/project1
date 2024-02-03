@@ -36,10 +36,9 @@ const ToDoes = ()=>{
     const savaTask = () => {
       // setId(id+1);
       const newTask = {
-        // id:id,
         name: name,
-        createDate: Date.now(),
-        isComplated: false
+        CreateDate: Date.now(),
+        complated: false
        
       }
       axiosDataPost(newTask);
