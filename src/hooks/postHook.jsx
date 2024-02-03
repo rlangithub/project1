@@ -6,9 +6,9 @@ const usePost = (props)=>{
     const axiosDataPost =async (newDate)=>{
         try{
             console.log("i in post first")
-            debugger
+            debugger;
             const post = await axios.post(props.url,newDate);
-            console.log("i finish post first")
+            
         }
         catch(erorr){
             console.error(erorr);
