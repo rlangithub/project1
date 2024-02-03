@@ -1,12 +1,17 @@
+import { X } from "@mui/icons-material";
 import axios from "axios";
+import React from "react";
 
 const usePost = (props)=>{
     const axiosDataPost =async (newDate)=>{
         try{
-            const post = await axios.put(props.url,newDate);
+            console.log("i in post first")
+            debugger
+            const post = await axios.post(props.url,newDate);
+            console.log("i finish post first")
         }
-        catch{
-            console.log("erorr put");
+        catch(erorr){
+            console.error(erorr);
         }
     }
     return {axiosDataPost};

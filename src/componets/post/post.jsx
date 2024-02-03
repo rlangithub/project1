@@ -20,9 +20,9 @@ const Post=()=>{
   const myPostes = useSelector(x=>x.PostSlice.postes);
  
   const [open, setOpen] = React.useState(false);
-  const {res,axiosData} = useGet({url:'http/f'});
-  const {axiosDataPost} = usePost({url:'http/f'});
-  const [id,setId] = useState(0);
+  const {res,axiosData} = useGet({url:'https://localhost:7259/api/Post'});
+  const {axiosDataPost} = usePost({url:'https://localhost:7259/api/Post'});
+  // const [id,setId] = useState(0);
   const [content, setContent] = useState("");
 
   const handleClickOpen = () => {
@@ -34,9 +34,9 @@ const Post=()=>{
   };
 
   const savaPost = () => {
-    setId(id+1);
+    // setId(id+1);
     const newPost = {
-      id:id,
+      // id:id,
       content: content,
       createDate: Date.now(),
       like:false

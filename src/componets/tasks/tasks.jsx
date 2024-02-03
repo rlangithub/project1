@@ -17,9 +17,9 @@ const ToDoes = ()=>{
 
     const dispatch = useDispatch();
     const [open, setOpen] = React.useState(false);
-    const {res,axiosData} = useGet({url:'http/f'});
-    const {axiosDataPost} = usePost({url:'http/f'});
-    const [id,setId] = useState(0);
+    const {res,axiosData} = useGet({url:'https://localhost:7259/api/ToDo'});
+    const {axiosDataPost} = usePost({url:'https://localhost:7259/api/ToDo'});
+    // const [id,setId] = useState(0);
     const myTasks = useSelector(x=>x.ToDoSlice.tasks);
 
 
@@ -34,16 +34,16 @@ const ToDoes = ()=>{
     };
   
     const savaTask = () => {
-      setId(id+1);
+      // setId(id+1);
       const newTask = {
-        id:id,
+        // id:id,
         name: name,
         createDate: Date.now(),
         isComplated: false
        
       }
-      dispatch(addTask({tasks:newTask}));
       axiosDataPost(newTask);
+      dispatch(addTask({tasks:newTask})); 
       handleClose()
     };
 

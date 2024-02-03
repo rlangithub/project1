@@ -32,8 +32,8 @@ const OnePost =(props)=>{
   const d=props.items.caeteDate;
   const Date=moment(d).format("DD/MM/yyy kk:mm:ss");
 
-  const {axiosDataDelete} = useDelete({url:'http/f'});//change
-  const {axiosDataPut} = usePut({url:'http/f'});
+  const {axiosDataDelete} = useDelete({url:'https://localhost:7259/api/Post'});
+  const {axiosDataPut} = usePut({url:'https://localhost:7259/api/Post'});
   const toEdit = () => {
       setEdit(false)
       dispatch(editPost({id: props.items.id, content: content,like:like}));
