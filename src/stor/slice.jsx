@@ -1,8 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const d=new Date();
-const nowDate=d.getDate()+"/"+d.getMonth()+"/"+d.getFullYear();
-
 const initValue = {
     tasks: []    
 };
