@@ -26,17 +26,17 @@ const OnePost =(props)=>{
   const [edit, setEdit] = useState(false);
   const [like, setLike] = useState(false);
   const [cnt, setCnt] = useState(0);
-//   const [time, setTime] = useState(props.items.caeteDate)
   const [content, setContent] = useState(props.items.content)
-  const moment= require('moment') 
-  const d=props.items.caeteDate;
-  const Date=moment(d).format("DD/MM/yyy kk:mm:ss");
+//   const moment= require('moment') 
+//   const d=props.items.caeteDate;
+//   const Date=moment(d).format("DD/MM/yyy kk:mm:ss");
 
   const {axiosDataDelete} = useDelete({url:'https://localhost:7259/api/Post'});
   const {axiosDataPut} = usePut({url:'https://localhost:7259/api/Post'});
   const toEdit = () => {
       setEdit(false)
       dispatch(editPost({id: props.items.id, content: content,like:like}));
+      console.log("i in to edit put")
       axiosDataPut({id: props.items.id, content: content,like:like});
   }
 

@@ -4,13 +4,14 @@ import React from "react";
 const usePut = (props)=>{
     const axiosDataPut =async (updateDate)=>{
         try{
-            let s=props.url;
-            s+='/';
-            s+=updateDate.id
-            const put = await axios.put(s,updateDate);
+            console.log("i in put")
+            debugger;
+            const put = await axios.put(props.url+'/'+updateDate.id,updateDate);
+            //const put = await axios.put(updateDate.id,updateDate);
+            console.log("i finish put")
         }
         catch{
-            console.log("erorr put");
+            console.log();
         }
     }
     return {axiosDataPut};

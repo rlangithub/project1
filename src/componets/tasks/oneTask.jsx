@@ -17,12 +17,10 @@ import { pink, cyan, teal, lime } from '@mui/material/colors';
 import {moment} from 'moment';
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-
-
 const OneTask =(props)=>{
   const dispatch = useDispatch()
   const [edit, setEdit] = useState(false)
-  const [isComplete, setIsComplete] = useState(props.items.isComplete)
+  const [Complated, setComplated] = useState(props.items.Complated)
   const [time, setTime] = useState(props.items.caeteDate)
   const [name, setName] = useState(props.items.name)
   const moment= require('moment') 
@@ -32,9 +30,9 @@ const OneTask =(props)=>{
   const {axiosDataDelete} = useDelete({url:'https://localhost:7259/api/ToDo'});
   const {axiosDataPut} = usePut({url:'https://localhost:7259/api/ToDo'});
   const toEdit = () => {
-      setEdit(false)
-      dispatch(editTask({id: props.items.id, name: name,isComplete: isComplete}));
-      axiosDataPut({id: props.items.id, name: name,isComplete: isComplete});
+      setEdit(false);
+      dispatch(editTask({id: props.items.id, name: name,Complated: Complated}));
+      axiosDataPut({id: props.items.id, name: name,Complated: Complated});
   }
 
   const todelete = (()=>{
@@ -68,12 +66,12 @@ const OneTask =(props)=>{
                   <CardContent>
                       <TextField id="outlined-basic"  variant="outlined"  defaultValue={props.items.name} onChange={(e) => setName(e.target.value)} />
                   </CardContent>
-                  {props.items.isComplete ?
+                  {props.items.Complated ?
                       <Checkbox
                           {...label}
                           defaultChecked
                        
-                          onClick={() => setIsComplete(!isComplete)}
+                          onClick={() => setComplated(!Complated)}
                       />
                       : <Checkbox
                           {...label}
@@ -84,7 +82,7 @@ const OneTask =(props)=>{
                                   color: lime['50'],
                               },
                           }}
-                          onClick={() => setIsComplete(!isComplete)}
+                          onClick={() => setComplated(!Complated)}
                       />
                   }
                   <CardActions >
