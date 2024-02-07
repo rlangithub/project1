@@ -3,7 +3,6 @@ import axios from "axios";
 const useDelete = (props)=>{
     const axiosDataDelete =async (id)=>{
         try{
-            debugger;
             const deleteTask = await axios.delete(props.url+'/'+id,id);
         }
         catch(erorr){

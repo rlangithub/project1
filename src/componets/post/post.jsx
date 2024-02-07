@@ -17,12 +17,15 @@ import DialogTitle from '@mui/material/DialogTitle';
 const Post=()=>{
 
   const dispatch = useDispatch();
-  const myPostes = useSelector(x=>x.PostSlice.postes);
  
   const [open, setOpen] = React.useState(false);
   const {res,axiosData} = useGet({url:'https://localhost:7259/api/Post'});
   const {axiosDataPost} = usePost({url:'https://localhost:7259/api/Post'});
-  // const [id,setId] = useState(0);
+  useEffect(()=>{
+    axiosData();
+    dispatch(getAll({res:res}));
+  });
+  const myPostes = useSelector(x=>x.PostSlice.postes);
   const [content, setContent] = useState("");
 
   const handleClickOpen = () => {
@@ -34,9 +37,7 @@ const Post=()=>{
   };
 
   const savaPost = () => {
-    // setId(id+1);
     const newPost = {
-      // id:id,
       content: content,
       createDate: Date.now(),
       like:false
@@ -45,12 +46,6 @@ const Post=()=>{
     axiosDataPost(newPost);
     handleClose()
   };
-
-  useEffect(()=>{
-    axiosData();
-    dispatch(getAll({res:res}));
-  },[]);
-
   return (
       <>
         <React.Fragment>
@@ -65,7 +60,7 @@ const Post=()=>{
                 margin="dense"
                 id="name"
                 label="Add Post"
-                type="email"
+                type="text"
                 fullWidth
                 variant="standard"
                 onChange={e=>{setContent(e.target.value)}}
